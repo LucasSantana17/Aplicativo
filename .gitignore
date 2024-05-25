@@ -1,0 +1,80 @@
+# Arquivos de build
+/build/
+/app/build/
+/*.iml
+.gradle/
+.idea/libraries/
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/misc.xml
+.idea/.name
+.DS_Store
+
+# Arquivos de cache
+*.apk
+*.ap_
+*.dex
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+*.hprof
+
+# Arquivos do sistema operacional
+*.log
+*.swp
+*.swo
+*.orig
+*.bak
+
+# Arquivos de configuração pessoal
+/local.properties
+/.idea/
+/captures/
+/.externalNativeBuild/
+
+# Diretórios de dependências
+/.gradle
+/captures/
+/build/
+/app/build/
+.idea/caches
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/misc.xml
+.idea/assetWizardSettings.xml
+.idea/codeStyles/Project.xml
+*.iws
+.idea/codeStyles/Project.xml
+
+# Arquivos gerados
+gen/
+out/
+# Gradle
+.gradle/
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+
+# Arquivos de log
+*.log
+
+# Dependências do Android Studio
+.gradle/
+/build/
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+
+# Arquivos do sistema
+Thumbs.db
+.DS_Store
