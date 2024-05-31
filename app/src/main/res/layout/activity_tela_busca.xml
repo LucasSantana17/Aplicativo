@@ -6,4 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".Tela_busca">
 
+
+    <TextView
+        android:id="@+id/tela_saida"
+        android:layout_width="306dp"
+        android:layout_height="301dp"
+        android:layout_marginTop="16dp"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/busca_dados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.476"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127" />
+
+    <EditText
+        android:id="@+id/identificador"
+        android:layout_width="166dp"
+        android:layout_height="62dp"
+        android:hint="ID"
+        android:textSize="27sp"
+        app:layout_constraintBottom_toTopOf="@+id/busca_dados"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.204"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tela_saida"
+        app:layout_constraintVertical_bias="0.491" />
+
+    <Button
+        android:id="@+id/busca_dados"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.878" />
 </androidx.constraintlayout.widget.ConstraintLayout>
