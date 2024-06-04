@@ -14,6 +14,7 @@ import android.widget.TextView;
 public class Tela_busca extends AppCompatActivity {
 
     private EditText id_referencia;
+    private EditText nome_referencia;
     private TextView tela_saida;
     private Button btn_buscar;
     private BancoDados bancoDados; // Adicione a instância do BancoDados
@@ -24,6 +25,7 @@ public class Tela_busca extends AppCompatActivity {
         setContentView(R.layout.activity_tela_busca);
 
         tela_saida = findViewById(R.id.tela_saida);
+        nome_referencia = findViewById(R.id.identificador);
         id_referencia = findViewById(R.id.identificador);
         btn_buscar = findViewById(R.id.busca_dados);
 
@@ -32,51 +34,49 @@ public class Tela_busca extends AppCompatActivity {
         btn_buscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = id_referencia.getText().toString(); // Converter o ID para String
-                buscarReference(Integer.parseInt(id)); // Chamar o método buscarReference com o ID convertido
+                String Referencia = nome_referencia.getText().toString();
+                buscaNome(Referencia);
             }
         });
     }
 
-    public void buscarReference(int id) {
-
+    public void buscaNome(String referencia) {
         SQLiteDatabase db = bancoDados.getReadableDatabase();
+        Tratamento tra = new Tratamento();
 
         String[] projection = {"id", "referencia", "quantidade"};
-        String selection = "id = ?";
-        String[] selectionArgs = {String.valueOf(id)}; // Converter o ID para String
+        String selection = "referencia = ?";
+        String[] selectionArgs = {referencia};
 
         Cursor cursor = db.query(
-                "Protocolo_dados", // A tabela a ser consultada
-                projection,        // As colunas que deseja recuperar
-                selection,         // A cláusula WHERE
-                selectionArgs,     // Os argumentos da cláusula WHERE
-                null,              // GROUP BY
-                null,              // HAVING
-                null               // ORDER BY
+                "Protocolo_dados",
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
         );
 
         if (cursor != null && cursor.moveToFirst()) {
-            // Se houver resultados, você pode acessá-los aqui
-            id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
-            String referencia = cursor.getString(cursor.getColumnIndexOrThrow("referencia"));
+            int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
+            referencia = cursor.getString(cursor.getColumnIndexOrThrow("referencia"));
             String quantidade = cursor.getString(cursor.getColumnIndexOrThrow("quantidade"));
 
-            // Exemplo: textView.setText("ID: " + id + ", Referencia: " + referencia + ", Quantidade: " + quantidade);
+
             String resultado = "ID: " + id + "\n" +
+
                     "Referência: " + referencia + "\n" +
                     "Quantidade: " + quantidade;
 
-            // Define o texto do TextView tela_saida
             tela_saida.setText(resultado);
         } else {
-            // Se não houver resultados, exibe uma mensagem indicando isso
-            tela_saida.setText("Nenhum resultado encontrado para o ID: " + id);
+            tela_saida.setText(tra.Saida());
         }
 
-        // Sempre feche o cursor após o uso para liberar os recursos
         if (cursor != null) {
             cursor.close();
         }
+
     }
 }

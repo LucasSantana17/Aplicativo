@@ -25,6 +25,7 @@
         android:layout_width="166dp"
         android:layout_height="62dp"
         android:hint="ID"
+        android:inputType="textCapCharacters"
         android:textSize="27sp"
         app:layout_constraintBottom_toTopOf="@+id/busca_dados"
         app:layout_constraintEnd_toEndOf="parent"
