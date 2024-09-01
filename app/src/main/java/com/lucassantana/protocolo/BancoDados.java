@@ -3,14 +3,23 @@ package com.lucassantana.protocolo;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import androidx.annotation.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 
 public class BancoDados extends SQLiteOpenHelper {
 
-     private static final String nome_data_base = "ProtocoloReferencia";
-     private static final int data_base_version = 1;
+     private static final String nome_data_base = "Protocolo";
+     private static final int data_base_version = 2;
 
-     private static final String TABLE_CREATE = "CREATE TABLE Protocolo_dados (id INTEGER PRIMARY KEY AUTOINCREMENT, referencia TEXT, quantidade INTEGER);";
+     private static final String TABLE_CREATE = "CREATE TABLE Protocolo_dados (" +
+             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+             "referencia TEXT NOT NULL UNIQUE, " +
+             "quantidade INTEGER NOT NULL, " +
+             "data_hora DATETIME DEFAULT CURRENT_TIMESTAMP" +
+             ");";
+
+
 
      public BancoDados(Context context){
           super(context, nome_data_base, null, data_base_version);

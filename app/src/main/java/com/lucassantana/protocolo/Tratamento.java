@@ -7,5 +7,6 @@ public class Tratamento {
         public  String Saida(){
             return "Resultado não encontrado";
         }
+        public  String msgErr(){ return "Erro ao salvar referência";}
 
 }

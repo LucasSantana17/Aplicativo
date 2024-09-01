@@ -26,7 +26,6 @@ public class Tela_busca extends AppCompatActivity {
 
         tela_saida = findViewById(R.id.tela_saida);
         nome_referencia = findViewById(R.id.identificador);
-        id_referencia = findViewById(R.id.identificador);
         btn_buscar = findViewById(R.id.busca_dados);
 
         bancoDados = new BancoDados(this); // Inicialize a instância do BancoDados
@@ -44,7 +43,7 @@ public class Tela_busca extends AppCompatActivity {
         SQLiteDatabase db = bancoDados.getReadableDatabase();
         Tratamento tra = new Tratamento();
 
-        String[] projection = {"id", "referencia", "quantidade"};
+        String[] projection = {"id", "referencia", "quantidade", "data_hora"};
         String selection = "referencia = ?";
         String[] selectionArgs = {referencia};
 
@@ -62,12 +61,13 @@ public class Tela_busca extends AppCompatActivity {
             int id = cursor.getInt(cursor.getColumnIndexOrThrow("id"));
             referencia = cursor.getString(cursor.getColumnIndexOrThrow("referencia"));
             String quantidade = cursor.getString(cursor.getColumnIndexOrThrow("quantidade"));
-
+            String data_hora = cursor.getString(cursor.getColumnIndexOrThrow("data_hora"));
 
             String resultado = "ID: " + id + "\n" +
-
                     "Referência: " + referencia + "\n" +
-                    "Quantidade: " + quantidade;
+                    "Quantidade: " + quantidade + "\n" +
+                    "Data: "
+                    + data_hora;
 
             tela_saida.setText(resultado);
         } else {
